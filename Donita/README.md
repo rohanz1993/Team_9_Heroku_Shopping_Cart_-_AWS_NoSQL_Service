@@ -13,7 +13,8 @@ The Heroku Developer Experience is an app-centric approach to software delivery 
 3.Data Services and Ecosystem
 
 Heroku Elements let developers extend their apps with Add-ons, customize their application stack with Buildpacks and jumpstart their projects with Buttons. 
-We created and deployed a sample node.js application on Heroku to learn about the flow of data and functioning mechanism.
+
+-We created and deployed a sample node.js application on Heroku to learn about the flow of data and functioning mechanism.
 
 
 
