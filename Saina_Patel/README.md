@@ -1,4 +1,5 @@
-In first week, we discussed above the entire design of our project and the idea of the app which we want to implement. Also I have researched about heroku and how to build a connection between heroku and aws. The entire research is in my file Research_about_Heroku.
+Week 1:
+We discussed above the entire design of our project and the idea of the app which we want to implement. Also I have researched about heroku and how to build a connection between heroku and aws. The entire research is in my file Research_about_Heroku.
 
 FrontEnd:
 On heroku we will have our nodejs application deployed
@@ -12,4 +13,4 @@ On aws account we will have S3 BUCKETS and our database
 
 
 Week 2 :
-Written code for user sign_up and storing all the details in mongoDB
+1. Written code for user sign_up and storing all the details in mongoDB
