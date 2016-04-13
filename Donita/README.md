@@ -17,7 +17,10 @@ Heroku Elements let developers extend their apps with Add-ons, customize their a
 
 -We created and deployed a sample node.js application on Heroku to learn about the flow of data and functioning mechanism.
 
+- Developed a sample basic user interface using node.js
 
+
+Added CouchDB powerpoint presentation
 
 
 
