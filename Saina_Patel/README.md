@@ -14,3 +14,4 @@ On aws account we will have S3 BUCKETS and our database
 
 Week 2 :
 1. Written code for user sign_up and storing all the details in mongoDB
+2. Updated Api Document for Api's(addToCart, viewCart, removeFromCart)
