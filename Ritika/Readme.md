@@ -62,3 +62,8 @@ Week 2
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 Installed and documented the steps for installing CouchDB on Linux AMI
+
+Updated API document for the following APIs:
+viewProfile()
+updateProfile()
+viewHistory()
