@@ -21,3 +21,6 @@ Following will be the features therefore reflected on the ultimate model
 3-Document Storage expressed in Json format
 4-Eventual consistency in a CA system.
 5-Map reduce and indexing
+
+For Week 2
+Created API doc for cancel order, checkout and confirm order 
