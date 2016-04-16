@@ -61,9 +61,15 @@ Week 2
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Installed and documented the steps for installing CouchDB on Linux AMI
+Installed and documented the steps for installing CouchDB on AWS Linux AMI
 
 Updated API document for the following APIs:
 viewProfile()
 updateProfile()
 viewHistory()
+
+Update the presentation for extra credits for CURL commands, limitations and compaction.
+
+Created a sample database and executed the queries for CouchDB on AWS Linux AMI
+
+Documented the queries and executed replication for CouchDB
