@@ -1,0 +1,10 @@
+{
+   "_id": "869e3d7c5034f7c1d0a45ce3b30345cb",
+   "_rev": "2-dbfc92d060b70d7d0e860bcb5a9ee1a3",
+   "item": "banana",
+   "prices": {
+       "Fresh Mart": 1.99,
+       "Price Max": 0.79,
+       "Banana Montana": 4.22
+   }
+}

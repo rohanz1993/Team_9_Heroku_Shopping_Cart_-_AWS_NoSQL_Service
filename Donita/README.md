@@ -22,6 +22,22 @@ Heroku Elements let developers extend their apps with Add-ons, customize their a
 
 Added CouchDB powerpoint presentation
 
+Week 2:
+
+1. Created API document for the following modules:
+- Selecting a particular category from the listed categories
+- Selecting a particular book from the books catalog.
+- Searching a particular book based on book name or author name or book ISBN
+
+2. Contributed in creating a PowerPoint presentation on couch DB by creating slides for introduction to couch DB, key features of couch DB, core APIs in couch DB and limitations of couch DB.
+3. Contributed in creating a database design for customers documents, book documents and orders documents
+
+Upcoming tasks
+1) Creating user interfaces design for 'select category', 'select book' and 'search book' module 
+3) Creating frontend code for 'select category', 'select book' and 'search book' module
+4) Creating backend code for 'select category', 'select book' and 'search book' module
+
+
 
 
 

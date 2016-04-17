@@ -13,3 +13,8 @@ Week 2:
 Commit 2:
 
 Created an api document for the Registration, login and log out.
+
+Week 2:
+Commit 3:
+
+Updated the couch db ppt added map-reduce functionality and examples in it

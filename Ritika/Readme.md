@@ -61,9 +61,38 @@ Week 2
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------
 
-Installed and documented the steps for installing CouchDB on Linux AMI
+Followed the steps for installing couchDB and installed it on AWS Linux AMI
 
-Updated API document for the following APIs:
-viewProfile()
-updateProfile()
-viewHistory()
+Documented the installation steps of couchDB
+
+Updated API document 
+Created a detailed API description (type of request, request parameters/body, server responses) for the following APIs:
+viewProfile() --> called when a customer tries to view his profile
+updateProfile() --> called when a customer tries to update his profile
+viewHistory() --> called when a customer tries to view his order history
+
+Updated the presentation for extra credits for CURL commands, limitations and compaction.
+
+Created a sample database and executed the queries for CouchDB on AWS Linux AMI
+
+Executed and documented the queries for CouchDB
+
+Performed replication on 2 databases on CouchDB on AWS EC2 
+
+Configured couchDB for external access using the following steps:
+1. Set security group to allow requests to port 5984
+2. change bind address of httpd of couchDB to 0.0.0.0
+3. run-->iptables -L -n -v
+should show:
+[ec2-user@ip-172-31-38-41 ~]$ sudo iptables -L -n -v
+Chain INPUT (policy ACCEPT 106 packets, 7520 bytes)
+ pkts bytes target     prot opt in     out     source               destination
+    0     0 ACCEPT     tcp  --  *      *       0.0.0.0/0            0.0.0.0/0            tcp dpt:5984
+4. if it does not show try this:
+iptables -A INPUT -p tcp --dport 5984 -j ACCEPT
+
+Created the final PDF for extra credit demonstration submission
+
+Tasks for next week:
+Create database design for the Bookstore
+Create end to end login and signup module which will include deploying the application on Heroku and connect it to the database on AWS
