@@ -19,6 +19,10 @@ Commit 3:
 
 Updated the couch db ppt added map-reduce functionality and examples in it
 
+Week 3:
+Commit 1:
+
+Connecting couch db with node js
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 Journal
