@@ -15,4 +15,16 @@ nano.db.create('test', function() {
       console.log('you have inserted the Record.');
       console.log(body);
     });
+    //fetch a document by ID
+    test.get('C_001', function(err,body)
+    		{
+    			if(err)
+    				{
+    				console.log('[test.get] ', err.message);
+    		        return;
+    				}
+    			console.log("Record returned");
+    			console.log(body);
+    		});
   });
+
