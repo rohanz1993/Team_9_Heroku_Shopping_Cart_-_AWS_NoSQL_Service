@@ -21,7 +21,7 @@
 	<div class="row">
 		<div class="col-md-4">
 			<div class="row">
-				<div class="col-md-12" style="margin: 10px;">
+				<div class="col-md-4" style="margin: 10px;">
 					Category:
 					<select type="text" name="category" ng-model="bookCategory">
 						<option value="Science">Science</option>
@@ -37,7 +37,14 @@
 					
 					</select>
 				</div>
-				
+				<div class="col-md-4" style="margin: 10px;">
+					Author:
+					<input type="text" ng-model="bookAuthor"/>
+				</div>
+				<div class="col-md-4" style="margin: 10px;">
+					Book Title:
+					<input type="text" ng-model="bookName"/>
+				</div>
 
 			
 					<input type="submit" class="btn btn-success" ng-click="submit();"
