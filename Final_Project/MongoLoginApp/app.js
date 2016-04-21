@@ -15,7 +15,7 @@ var expressSession = require("express-session");
 var mongoStore = require("connect-mongo")(expressSession);
 var mongo = require("./routes/mongo");
 var login = require("./routes/login");
-
+var book = require("./routes/book");
 var app = express();
 
 //all environments
@@ -53,6 +53,8 @@ app.get('/homepage',login.redirectToHomepage);
 //POST Requests
 app.post('/checklogin', login.checkLogin);
 app.post('/logout', login.logout);
+app.post('/select_category',book.select_category);
+app.post('/search_book',book.search_book);
 
 //connect to the mongo collection session and then createServer
 mongo.connect(mongoSessionConnectURL, function(){
