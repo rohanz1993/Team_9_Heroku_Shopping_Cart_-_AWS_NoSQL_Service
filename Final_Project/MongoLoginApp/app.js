@@ -10,10 +10,10 @@ var express = require('express')
 , path = require('path');
 
 //URL for the sessions collections in mongoDB
-var mongoSessionConnectURL = "mongodb://localhost:27017/login";
+//var mongoSessionConnectURL = "mongodb://localhost:27017/login";
 var expressSession = require("express-session");
-var mongoStore = require("connect-mongo")(expressSession);
-var mongo = require("./routes/mongo");
+//var mongoStore = require("connect-mongo")(expressSession);
+//var mongo = require("./routes/mongo");
 var login = require("./routes/login");
 var book = require("./routes/book");
 var app = express();
@@ -26,16 +26,16 @@ app.use(express.favicon());
 app.use(express.logger('dev'));
 app.use(express.bodyParser());
 app.use(express.methodOverride());
-app.use(expressSession({
-	secret: 'cmpe273_teststring',
-	resave: false,  //don't save session if unmodified
-	saveUninitialized: false,	// don't create session until something stored
-	duration: 30 * 60 * 1000,    
-	activeDuration: 5 * 60 * 1000,
-	store: new mongoStore({
-		url: mongoSessionConnectURL
-	})
-}));
+//app.use(expressSession({
+//	secret: 'cmpe273_teststring',
+//	resave: false,  //don't save session if unmodified
+//	saveUninitialized: false,	// don't create session until something stored
+//	duration: 30 * 60 * 1000,    
+//	activeDuration: 5 * 60 * 1000,
+//	store: new mongoStore({
+//		url: mongoSessionConnectURL
+//	})
+//}));
 
 app.use(app.router);
 app.use(express.static(path.join(__dirname, 'public')));
@@ -56,10 +56,11 @@ app.post('/logout', login.logout);
 app.post('/select_category',book.select_category);
 app.post('/search_book',book.search_book);
 
+http.createServer(app).listen(app.get('port'), function(){
+	console.log('Express server listening on port ' + app.get('port'));
+});  
 //connect to the mongo collection session and then createServer
-mongo.connect(mongoSessionConnectURL, function(){
-	console.log('Connected to mongo at: ' + mongoSessionConnectURL);
-	http.createServer(app).listen(app.get('port'), function(){
-		console.log('Express server listening on port ' + app.get('port'));
-	});  
-});
+//mongo.connect(mongoSessionConnectURL, function(){
+//	console.log('Connected to mongo at: ' + mongoSessionConnectURL);
+//	
+//});
