@@ -22,13 +22,20 @@ exports.checkLogin = function(req,res){
 		    		var password = body.rows[0].value.password;
 		    		if(password==pass)
 		    			{
-		    		console.log("Login successful " +doc_username +" "+password);	
+		    			//res.send("Login Successful");
+		    			console.log("Login successful " +doc_username +" "+password);	
 		    			}
 		    		else
+		    			{
+		    			//.send("Incorrect password");
 		    			console.log("Incorrect password");
+		    			}
 		        }
 		    	else
+		    		{
+		    		//res.send("Login failed, User doesn't exist");
 		    		console.log("Login failed, User doesn't exist");
+		    		}
 		    }
 		    else
 		    	{
