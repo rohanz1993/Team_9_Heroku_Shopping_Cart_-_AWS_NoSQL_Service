@@ -4,9 +4,31 @@
 
 //var myConnection= require("./myConnection.js");
 //var checkLoggedInUser= require("./checkLoggedInUser.js");
+var http = require ('http');
+var nano = require('nano')('http://localhost:5984/');
 
 exports.viewCart = function(req, res) {
+	var customerid='123';
 	
+	var cart=nano.use('cart');
+	
+	cart.view('viewcart','by_customer_id',{'key':'customerid','include_docs':true},function(err,body){
+		if(!err)
+			{
+			var rows=body.rows;
+			//console.log("rows"+body.rows[0].values.customer_id);
+	    	if(typeof body.rows[0] !== "undefined")
+	        {
+	    		console.log("cart values "+body.rows[0].values.product_details);
+	        }else
+	        	{
+	        	console.log("cart is empty");
+	        	}
+			}else
+				{
+				console.log("helloError "+err);
+				}
+	});
 //	var connection = myConnection.myConnection();
 //	if(checkLoggedInUser.checkLoggedInUser(req,res)===true)
 //	{

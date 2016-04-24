@@ -2,7 +2,7 @@
  * New node file
  */
 var http = require ('http');
-var nano = require('nano')('http://52.39.56.202:5984/');
+var nano = require('nano')('http://localhost:5984/');
 
 exports.checkLogin = function(req,res){
 	// These two variables come from the form on
@@ -11,7 +11,7 @@ exports.checkLogin = function(req,res){
 	var pass = req.param("password");
 	var json_responses;
 	  
-	  var test1 = nano.use('test1');
+	  var test1 = nano.db.use('test1');
 	  console.log("outside"); 
 	  test1.view('login', 'by_user_name',{'key': username, 'include_docs': true}, function(err, body){
 		  console.log("inside");  
