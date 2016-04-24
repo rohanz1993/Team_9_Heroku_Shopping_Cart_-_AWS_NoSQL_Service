@@ -2,7 +2,7 @@
  * New node file
  */
 var http = require ('http');
-var nano = require('nano')('http://localhost:5984');
+var nano = require('nano')('http://52.39.56.202:5984');
 
 exports.checkLogin = function(req,res){
 	// These two variables come from the form on

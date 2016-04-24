@@ -5,7 +5,7 @@
 //var myConnection= require("./myConnection.js");
 //var checkLoggedInUser= require("./checkLoggedInUser.js");
 
-exports.addevent = function(req, res) {
+exports.viewCart = function(req, res) {
 	
 //	var connection = myConnection.myConnection();
 //	if(checkLoggedInUser.checkLoggedInUser(req,res)===true)
