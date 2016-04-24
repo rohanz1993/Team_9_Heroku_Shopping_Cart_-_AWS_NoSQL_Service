@@ -13,6 +13,11 @@ On aws account we will have S3 BUCKETS and our database
 
 
 Week 2 :
-1. Written code for user sign_up and storing all the details in mongoDB
+1. Written code for user sign_up and storing all the details in CouchDB
 2. Updated Api Document for Api's(addToCart, viewCart, removeFromCart)
 3. Worked on Presentation of CouchDB and installed and ran various queries to test the database
+
+Week 3 :
+1. Created a basic user interface page for View Cart of books and created an API for viewCART. While creating an API I created a view for giving out all the details of customer's cart using customer id. Tested these API's first on postman and later on UI. 
+2. Deployed our nodejs code on heroku and all the steps are in Heroku installation steps in my folder.
+3. Connected our application to the database on aws. Finsihed end-to-end working of login module.

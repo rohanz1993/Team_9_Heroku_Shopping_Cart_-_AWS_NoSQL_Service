@@ -1,36 +1,47 @@
 /**
  * New node file
  */
-var mongo = require("./mongo");
-var mongoURL = "mongodb://localhost:27017/twitter";
+var http = require ('http');
+var nano = require('nano')('http://localhost:5984');
 
 exports.checkLogin = function(req,res){
 	// These two variables come from the form on
 	// the views/login.hbs page
 	var username = req.param("username");
-	var password = req.param("password");
-	console.log(password +" is the object");
+	var pass = req.param("password");
 	var json_responses;
 
-	mongo.connect(mongoURL, function(){
-		console.log('Connected to mongo at: ' + mongoURL);
-		var coll = mongo.collection('login');
-
-		coll.findOne({username: username, password:password}, function(err, user){
-			if (user) {
-				// This way subsequent requests will know the user is logged in.
-				req.session.username = user.username;
-				console.log(req.session.username +" is the session");
-				json_responses = {"statusCode" : 200};
-				res.send(json_responses);
-
-			} else {
-				console.log("returned false");
-				json_responses = {"statusCode" : 401};
-				res.send(json_responses);
-			}
+	  var test = nano.use('test');
+	  	  
+	  test.view('login', 'by_user_name',{'key': username, 'include_docs': true}, function(err, body){
+		    if(!err){
+		    	var rows=body.rows;
+		    	if(typeof body.rows[0] !== "undefined")
+		        {
+		    		var doc_username = body.rows[0].value.user_name;
+		    		var password = body.rows[0].value.password;
+		    		if(password==pass)
+		    			{
+		    			//res.send("Login Successful");
+		    			console.log("Login successful " +doc_username +" "+password);	
+		    			}
+		    		else
+		    			{
+		    			//.send("Incorrect password");
+		    			console.log("Incorrect password");
+		    			}
+		        }
+		    	else
+		    		{
+		    		//res.send("Login failed, User doesn't exist");
+		    		console.log("Login failed, User doesn't exist");
+		    		}
+		    }
+		    else
+		    	{
+		    	console.log("Error "+err);
+		    	}
 		});
-	});
 };
 
 //Redirects to the homepage
