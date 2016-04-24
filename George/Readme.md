@@ -25,3 +25,8 @@ Following will be the features therefore reflected on the ultimate model
 For Week 2
 Created API doc for cancel order, checkout and confirm order 
 Completed sample queries for couchDB which include creating sample documents and running map and reduce queries
+
+For Week 3
+Created The sample UI wireframe for the different pages of the shopping cart
+Created flowchart to demonstrate the flow of operations in the project
+Created the NodeJs Backend for Retrive Orders and cancel Orders(couch DB) 
