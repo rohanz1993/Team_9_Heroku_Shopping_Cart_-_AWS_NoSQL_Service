@@ -17,6 +17,7 @@ var expressSession = require("express-session");
 var login = require("./routes/login");
 var book = require("./routes/book");
 var cart=require("./routes/cart");
+var customer = require("./routes/customer");
 var app = express();
 
 //all environments
@@ -57,6 +58,8 @@ app.post('/logout', login.logout);
 app.post('/select_category',book.select_category);
 app.post('/search_book',book.search_book);
 app.get('/view_cart',cart.viewCart);
+app.get('/viewProfile',customer.viewProfile);
+app.get('/getProfileDetails',customer.getProfileDetails);
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
 });  
