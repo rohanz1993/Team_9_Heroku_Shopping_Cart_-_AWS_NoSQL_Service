@@ -9,6 +9,7 @@ exports.checkLogin = function(req,res){
 	// the views/login.hbs page
 	var username = req.param("username");
 	var pass = req.param("password");
+	
 	var json_responses;
 	  
 	  var test1 = nano.db.use('test1');

@@ -18,6 +18,7 @@ var login = require("./routes/login");
 var book = require("./routes/book");
 var cart=require("./routes/cart");
 var customer = require("./routes/customer");
+var signup=require("./routes/signup");
 var app = express();
 
 //all environments
@@ -53,6 +54,7 @@ app.get('/users', user.list);
 app.get('/homepage',login.redirectToHomepage);
 
 //POST Requests
+app.post('/signup',signup.signup);
 app.post('/checklogin', login.checkLogin);
 app.post('/logout', login.logout);
 app.post('/select_category',book.select_category);

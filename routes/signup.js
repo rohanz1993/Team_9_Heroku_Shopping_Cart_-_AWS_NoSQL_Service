@@ -1,6 +1,33 @@
-//var mongo = require("./mongo");
-//var mongoURL = "mongodb://localhost:27017/test";
-function handle_request(msg,callback){
+var http = require ('http');
+var nano = require('nano')('http://localhost:5984/');
+exports.signup=function(req,res)
+{
+	var firstname=req.param("firstname");
+	var lastname=req.param("lastname");
+	var email=req.param("email");
+	var username=req.param("username");
+	var password=req.param("password");
+	var address=req.param("address");
+	var card_no=req.param("card_no");
+	var cvv=req.param("cvv");
+	var expiredate=req.param("expire_date");
+	var customerid="678";
+	var test1=nano.db.use('test1');
+	
+	test1.insert({'first_name':firstname,'last_name':lastname,'email':email,'user_name':username,'password':password,'address':address,'card_no':card_no,'cvv':cvv,'expire_date':expiredate,'customer_id':customerid},'S-002',function(err,body,header){
+		if (err) {
+			console.log('[test1.insert] ', err.message);
+			return;
+		}
+		console.log('you have inserted the Record.');
+		console.log(body);
+	});
+
+	
+	
+	
+	
+}
 //	var res={};
 //	var username, password, firstname, lastname, address;
 //	username=msg.username;
@@ -31,6 +58,4 @@ function handle_request(msg,callback){
 //	console.log("res is"+res);
 //		});
 	
-};
 
-exports.handle_request=handle_request;
