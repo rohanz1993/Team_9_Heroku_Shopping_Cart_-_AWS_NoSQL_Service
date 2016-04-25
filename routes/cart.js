@@ -8,18 +8,18 @@ var http = require ('http');
 var nano = require('nano')('http://localhost:5984/');
 
 exports.viewCart = function(req, res) {
-	var customerid='123';
+	var customerid=req.param("customer_id");
 	
 	var cart=nano.use('cart');
 	
-	cart.view('viewcart','by_customer_id',{'key':'customerid','include_docs':true},function(err,body){
+	cart.view('viewcart','by_customer_id',{'key':customerid,'include_docs':true},function(err,body){
 		if(!err)
 			{
 			var rows=body.rows;
 			//console.log("rows"+body.rows[0].values.customer_id);
 	    	if(typeof body.rows[0] !== "undefined")
 	        {
-	    		console.log("cart values "+body.rows[0].values.product_details);
+	    		console.log("cart values "+body.rows[0].value.product_details);
 	        }else
 	        	{
 	        	console.log("cart is empty");
@@ -66,4 +66,26 @@ exports.viewCart = function(req, res) {
 //		});
 //	}
 //	
+};
+
+exports.addToCart=function(req,res)
+{
+	customerid=req.param("customer_id");
+	var cart=nano.use('cart');
+	var productdetails="product_details";
+	
+	cart.insert({'customer_id' : customerid , 'product_details' : productdetails},'C-003',function(err,body,header){
+		if (err) {
+			console.log('[cart.insert] ', err.message);
+			return;
+		}else
+			{
+			console.log("you have inserted the record");
+			console.log(body);
+			}
+	});
+	
+	
+	
+	
 };

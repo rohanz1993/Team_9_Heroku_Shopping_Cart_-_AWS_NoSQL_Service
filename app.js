@@ -57,7 +57,8 @@ app.post('/checklogin', login.checkLogin);
 app.post('/logout', login.logout);
 app.post('/select_category',book.select_category);
 app.post('/search_book',book.search_book);
-app.get('/view_cart',cart.viewCart);
+app.get('/viewCart',cart.viewCart);
+app.post('/addToCart',cart.addToCart);
 app.get('/viewProfile',customer.viewProfile);
 app.get('/getProfileDetails',customer.getProfileDetails);
 http.createServer(app).listen(app.get('port'), function(){
