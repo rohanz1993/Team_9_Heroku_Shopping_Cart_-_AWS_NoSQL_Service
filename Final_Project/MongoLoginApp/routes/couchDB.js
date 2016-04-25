@@ -1,6 +1,6 @@
 
 var http = require ('http');
-var nano = require('nano')('http://localhost:5984');
+var nano = require('nano')('http://54.210.203.140:5984');
 //IP of EC2 instance:5984
 
 nano.db.create('test', function() {
@@ -31,9 +31,12 @@ nano.db.create('test', function() {
 			  { "views": 
 			    { "by_user_name": 
 			      { 
-			    	"map": function(doc) { 
-			    	  emit(doc.user_name, doc); //doc.user_name is the key and doc.password is the value
-			    	  } 
+			    	"map": function(doc) {
+			    		if(doc.user_name && doc.password)
+				    	  {
+				    			emit(doc.user_name, doc);
+				    	  }
+				    	  } 
 			      } 
 			    }
 			  },'_design/login');
