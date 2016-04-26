@@ -7,7 +7,7 @@ nano.db.create('test', function() {
     // specify the database we are going to use
     var test = nano.use('test');
     // and insert a document in it
-    test.insert({ name: "ritika" }, 'C_001', function(err, body, header) {
+    test.insert({ user_name: "ritika",password:"ritika" }, 'C_001', function(err, body, header) {
       if (err) {
         console.log('[test.insert] ', err.message);
         return;
@@ -33,12 +33,13 @@ nano.db.create('test', function() {
 			      { 
 			    	"map": function(doc) {
 			    		if(doc.user_name && doc.password)
-				    	  {
-				    			emit(doc.user_name, doc);
-				    	  }
-				    	  } 
+			    	  {
+			    			emit(doc.user_name, doc);
+			    	  }
+			    	  } 
 			      } 
 			    }
 			  },'_design/login');
+    
   });
 
