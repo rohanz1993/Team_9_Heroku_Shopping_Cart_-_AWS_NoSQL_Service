@@ -49,6 +49,8 @@ if ('development' === app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/homepage',login.redirectToHomepage);
+app.get('/viewProfile',customer.viewProfile);
+app.get('/getProfileDetails',customer.getProfileDetails);
 
 //POST Requests
 app.post('/checklogin', login.checkLogin);
