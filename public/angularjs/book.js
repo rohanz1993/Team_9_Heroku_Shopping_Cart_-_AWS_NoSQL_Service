@@ -16,6 +16,9 @@ search_book.controller('search_book', function($scope, $http) {
 				"bookCategory":$scope.bookCategory
 			}
 		}).success(function(data) {
+			if(data.status_code==200){
+				console.log(data.rows);
+			}
 			
 		}).error(function(error) {
 			
