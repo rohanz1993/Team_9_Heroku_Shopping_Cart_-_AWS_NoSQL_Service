@@ -5,7 +5,7 @@
 //var myConnection= require("./myConnection.js");
 //var checkLoggedInUser= require("./checkLoggedInUser.js");
 var http = require ('http');
-var nano = require('nano')('http://localhost:5984/');
+var nano = require('nano')('http://ec2-54-210-203-140.compute-1.amazonaws.com:5984/');
 
 exports.viewCart = function(req, res) {
 	var customerid=req.param("customer_id");

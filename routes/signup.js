@@ -1,5 +1,5 @@
 var http = require ('http');
-var nano = require('nano')('http://localhost:5984/');
+var nano = require('nano')('http://ec2-54-210-203-140.compute-1.amazonaws.com:5984/');
 exports.signup=function(req,res)
 {
 	var firstname=req.param("firstname");

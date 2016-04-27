@@ -2,19 +2,20 @@
  * New node file
  */
 var http = require ('http');
-var nano = require('nano')('http://localhost:5984/');
+var nano = require('nano')('http://ec2-54-210-203-140.compute-1.amazonaws.com:5984/');
 
 exports.checkLogin = function(req,res){
 	// These two variables come from the form on
 	// the views/login.hbs page
+	console.log("in login");
 	var username = req.param("username");
 	var pass = req.param("password");
 	
 	var json_responses;
 	  
-	  var test1 = nano.db.use('test1');
+	  var test = nano.db.use('test');
 	  console.log("outside"); 
-	  test1.view('login', 'by_user_name',{'key': username, 'include_docs': true}, function(err, body){
+	  test.view('login', 'by_user_name',{'key': username, 'include_docs': true}, function(err, body){
 		  console.log("inside");  
 		  if(!err){
 		    	console.log("inside1");
