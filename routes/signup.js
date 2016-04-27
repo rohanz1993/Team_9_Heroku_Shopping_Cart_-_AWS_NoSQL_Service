@@ -12,12 +12,12 @@ exports.signup=function(req,res)
 	var cvv=req.param("cvv");
 	var expiredate=req.param("expire_date");
 	var customerid="678";
-	var test1=nano.db.use('test1');
+	var test=nano.db.use('test');
 	
-	test1.insert({'first_name':firstname,'last_name':lastname,'email':email,'user_name':username,'password':password,'address':address,'card_no':card_no,'cvv':cvv,'expire_date':expiredate,'customer_id':customerid},'S-002',function(err,body,header){
+	test.insert({'first_name':firstname,'last_name':lastname,'email':email,'password':password,'address':address,'card_no':card_no,'cvv':cvv,'expire_date':expiredate,'customer_id':customerid},'S-002',function(err,body,header){
 		if (err) {
-			console.log('[test1.insert] ', err.message);
-			return;
+			console.log('[test.insert] ', err.message);
+			res.render("login");
 		}
 		console.log('you have inserted the Record.');
 		console.log(body);

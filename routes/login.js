@@ -8,14 +8,14 @@ exports.checkLogin = function(req,res){
 	// These two variables come from the form on
 	// the views/login.hbs page
 	console.log("in login");
-	var username = req.param("username");
+	var email = req.param("email");
 	var pass = req.param("password");
-	console.log("usernmae"+username);
+	console.log("usernmae"+email+"password"+pass);
 	var json_responses;
 	  
 	  var test = nano.db.use('test');
 	  console.log("outside"); 
-	  test.view('login', 'by_user_name',{'key': username, 'include_docs': true}, function(err, body){
+	  test.view('login', 'by_email_address',{'key': email , 'include_docs': true}, function(err, body){
 		  console.log("inside");  
 		  if(!err){
 		    	console.log("inside1");
@@ -23,13 +23,13 @@ exports.checkLogin = function(req,res){
 		    	if(typeof body.rows[0] !== "undefined")
 		        {
 		    		console.log("inside2");
-		    		var doc_username = body.rows[0].value.user_name;
+		    		var doc_email = body.rows[0].value.email;
 		    		var password = body.rows[0].value.password;
 		    		if(password==pass)
 		    			{
 		    			console.log("inside3");
 		    			//res.send("Login Successful");
-		    			console.log("Login successful " +doc_username +" "+password);
+		    			console.log("Login successful " +doc_email +" "+password);
 		    			res.render('viewCart');
 		    			}
 		    		else
