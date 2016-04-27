@@ -20,6 +20,7 @@ exports.viewCart = function(req, res) {
 	    	if(typeof body.rows[0] !== "undefined")
 	        {
 	    		console.log("cart values "+body.rows[0].value.product_details);
+	    		res.send("cart values",body.rows[0].value.product_details);
 	        }else
 	        	{
 	        	console.log("cart is empty");
