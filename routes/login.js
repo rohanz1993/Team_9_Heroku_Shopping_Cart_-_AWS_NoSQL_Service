@@ -10,7 +10,7 @@ exports.checkLogin = function(req,res){
 	console.log("in login");
 	var username = req.param("username");
 	var pass = req.param("password");
-	
+	console.log("usernmae"+username);
 	var json_responses;
 	  
 	  var test = nano.db.use('test');
