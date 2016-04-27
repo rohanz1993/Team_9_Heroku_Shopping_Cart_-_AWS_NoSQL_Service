@@ -29,7 +29,8 @@ exports.checkLogin = function(req,res){
 		    			{
 		    			console.log("inside3");
 		    			//res.send("Login Successful");
-		    			console.log("Login successful " +doc_username +" "+password);	
+		    			console.log("Login successful " +doc_username +" "+password);
+		    			res.render('viewCart');
 		    			}
 		    		else
 		    			{
