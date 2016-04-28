@@ -19,7 +19,12 @@
 						url : '/viewCart',
 						data: {}
 			  }).success(function(data){
-				  $scope.product_details=data.product;
+				  /* $scope.book_name=data.product_details.book_name;
+				  $scope.book_author=data.product_details.book_author;
+				  $scope.book_cost=data.product_details.book_cost;
+				  $scope.book_quantity=1; */
+				  $scope.product_details=data.product_details;
+				  
 			  })
 		  
 		  }
@@ -104,12 +109,6 @@
 </div>
 </div>
 
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
 <div class="row">
 <div class="col-sm-1">
 </div>
@@ -117,38 +116,21 @@
 <table class="table">
     <thead>
       <tr>
-      <th>" "</th>
+      <th></th>
+      <th>Book Author</th>
         <th>Book Name</th>
         <th>Price</th>
         <th>Quantity</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>1</td>
-        <td>001</td>
-        <td>Dictionary {{product_details}}</td>
-        <td>100</td>
-      </tr>
-      <tr>
-        <td>2</td>
-        <td>002</td>
-        <td>Romeo and Juliet</td>
-        <td>200</td>
-      </tr>
-      <tr>
-        <td>1</td>
-        <td>003</td>
-        <td>Sherlock</td>
-        <td>100</td>
-      </tr>
-      <tr>
-        <td></td>
-        <td></td>
-        <td><strong>Total</strong></td>
-        <td>400</td>
-      </tr>
-      
+      <tr ng-repeat="user in product_details">
+      <td><img ng-src="images/{{user.value.book_image}}" height="120" width="120"/></img></td>
+        <td><br><br>{{user.value.book_author}}</td>
+        <td><br><br>{{user.value.book_name}}</td>
+        <td><br><br>{{user.value.book_cost}} $</td>
+        <td><br><br>1</td>
+      </tr>   
     </tbody>
   </table>
   

@@ -1,5 +1,6 @@
 var http = require ('http');
 var nano = require('nano')('http://ec2-54-210-203-140.compute-1.amazonaws.com:5984/');
+var id=244;
 exports.signup=function(req,res)
 {
 	var firstname=req.param("firstname");
@@ -11,7 +12,9 @@ exports.signup=function(req,res)
 	var card_no=req.param("card_no");
 	var cvv=req.param("cvv");
 	var expiredate=req.param("expire_date");
-	var customerid="678";
+	
+	var customerid=id++;
+	
 	var test=nano.db.use('test');
 	
 	test.insert({'first_name':firstname,'last_name':lastname,'email':email,'password':password,'address':address,'card_no':card_no,'cvv':cvv,'expire_date':expiredate,'customer_id':customerid},'S-002',function(err,body,header){

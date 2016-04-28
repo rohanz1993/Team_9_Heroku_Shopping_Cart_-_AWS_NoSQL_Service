@@ -8,7 +8,8 @@ var http = require ('http');
 var nano = require('nano')('http://ec2-54-210-203-140.compute-1.amazonaws.com:5984/');
 
 exports.viewCart = function(req, res) {
-	var customerid=req.param("customer_id");
+	var customerid="345";
+		//req.param("customer_id");
 	
 	var cart=nano.use('cart');
 	
@@ -20,7 +21,8 @@ exports.viewCart = function(req, res) {
 	    	if(typeof body.rows[0] !== "undefined")
 	        {
 	    		console.log("cart values "+body.rows[0].value.product_details);
-	    		res.send({"product":body.rows[0].value.product_details});
+	    		//res.send({"book_name":body.rows[0].value.book_name,"book_author":body.rows[0].value.book_author,"book_cost":body.rows[0].value.book_cost});
+	       res.send({"product_details":body.rows});
 	        }else
 	        	{
 	        	console.log("cart is empty");
@@ -74,8 +76,13 @@ exports.addToCart=function(req,res)
 	customerid=req.param("customer_id");
 	var cart=nano.use('cart');
 	var productdetails="product_details";
+	var bookimage=req.param("book_image");
+	var bookname=req.param("book_name");
+	var bookauthor=req.param("book_author");
+	var bookcost=req.param("book_cost");
+	var quantity=1;
 	
-	cart.insert({'customer_id' : customerid , 'product_details' : productdetails},'C-003',function(err,body,header){
+	cart.insert({'customer_id' : customerid , 'book_image':bookimage, 'book_name':bookname, 'book_author':bookauthor, 'book_cost':bookcost, 'quantity':quantity},'C-011',function(err,body,header){
 		if (err) {
 			console.log('[cart.insert] ', err.message);
 			return;
