@@ -10,8 +10,24 @@
 	  <style>
 		#panel {background-color:#f2f2f2; margin-top:100px; margin-bottom:75px; padding-left:40px; padding-bottom:70px}
 	  </style>
+	  <script type="text/javascript">
+	  var app = angular.module('myApp', []);
+	  app.controller('Controller',function($scope,$http){
+		  $scope.viewCart=function(){
+			  $http({
+				  method : "GET",
+						url : '/viewCart',
+						data: {}
+			  }).success(function(data){
+				  $scope.product_details=data.product;
+			  })
+		  
+		  }
+		  
+	  })
+	  </script>
    </head>
-   <body>
+   <body ng-app="myApp" ng-controller="Controller" ng-init="viewCart()">
 		<nav class="navbar navbar-default navbar-fixed-top" style="background-color:#484848; padding:10px">
    <div class="row">
    <div class="col-sm-11">
@@ -101,17 +117,17 @@
 <table class="table">
     <thead>
       <tr>
-      <th>Quantity</th>
-        <th>Book id</th>
-        <th>Book name</th>
-        <th>Cost</th>
+      <th>" "</th>
+        <th>Book Name</th>
+        <th>Price</th>
+        <th>Quantity</th>
       </tr>
     </thead>
     <tbody>
       <tr>
         <td>1</td>
         <td>001</td>
-        <td>Dictionary</td>
+        <td>Dictionary {{product_details}}</td>
         <td>100</td>
       </tr>
       <tr>
@@ -154,8 +170,6 @@
     <br>
     
 </div>
-
-
 
 		<div class="row">
 			<div class="panel-body" style="background-color:#333333;padding-left:40px">
