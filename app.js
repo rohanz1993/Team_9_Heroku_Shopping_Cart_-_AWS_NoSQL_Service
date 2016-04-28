@@ -52,6 +52,8 @@ if ('development' === app.get('env')) {
 app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/homepage',login.redirectToHomepage);
+app.get('/viewProfile',customer.viewProfile);
+app.get('/getProfileDetails',customer.getProfileDetails);
 
 //POST Requests
 app.post('/signup',signup.signup);
@@ -61,8 +63,8 @@ app.post('/select_category',book.select_category);
 app.post('/search_book',book.search_book);
 app.get('/viewCart',cart.viewCart);
 app.post('/addToCart',cart.addToCart);
-app.get('/viewProfile',customer.viewProfile);
-app.get('/getProfileDetails',customer.getProfileDetails);
+app.post('/editProfile',customer.editProfile);
+
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
 });  
