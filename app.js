@@ -64,7 +64,7 @@ app.post('/search_book',book.search_book);
 app.get('/viewCart',cart.viewCart);
 app.post('/addToCart',cart.addToCart);
 app.post('/editProfile',customer.editProfile);
-
+app.post('/changeQuantity',cart.changeQuantity);
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('Express server listening on port ' + app.get('port'));
 });  

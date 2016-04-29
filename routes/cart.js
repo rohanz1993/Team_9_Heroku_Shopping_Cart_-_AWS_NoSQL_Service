@@ -8,7 +8,8 @@ var http = require ('http');
 var nano = require('nano')('http://ec2-54-210-203-140.compute-1.amazonaws.com:5984/');
 
 exports.viewCart = function(req, res) {
-	var customerid=req.param("customer_id");
+	var customerid="345";
+		//req.param("customer_id");
 	
 	var cart=nano.use('cart');
 	
@@ -19,8 +20,9 @@ exports.viewCart = function(req, res) {
 			//console.log("rows"+body.rows[0].values.customer_id);
 	    	if(typeof body.rows[0] !== "undefined")
 	        {
-	    		console.log("cart values "+body.rows[0].value.product_details);
-	    		res.send("cart values",body.rows[0].value.product_details);
+	    		console.log("cart values "+body.rows[0].value.quantity);
+	    		//res.send({"book_name":body.rows[0].value.book_name,"book_author":body.rows[0].value.book_author,"book_cost":body.rows[0].value.book_cost});
+	       res.send({"product_details":body.rows});
 	        }else
 	        	{
 	        	console.log("cart is empty");
@@ -74,8 +76,15 @@ exports.addToCart=function(req,res)
 	customerid=req.param("customer_id");
 	var cart=nano.use('cart');
 	var productdetails="product_details";
+	var bookimage=req.param("book_image");
+	var bookname=req.param("book_name");
+	var bookauthor=req.param("book_author");
+	var bookcost=req.param("book_cost");
+	var quantity=req.param("quantity");
+	var counter=1;
+	var id=counter++;
 	
-	cart.insert({'customer_id' : customerid , 'product_details' : productdetails},'C-003',function(err,body,header){
+	cart.insert({'customer_id' : customerid , 'book_image':bookimage, 'book_name':bookname, 'book_author':bookauthor, 'book_cost':bookcost, 'quantity':quantity},id,function(err,body,header){
 		if (err) {
 			console.log('[cart.insert] ', err.message);
 			return;
@@ -90,3 +99,21 @@ exports.addToCart=function(req,res)
 	
 	
 };
+
+exports.changeQuantity=function(req,res){
+	var quantity=req.param("quantity");
+	var product_details=req.param("product_details");
+	console.log("qunatity"+quantity);
+	var cart=nano.use('cart');
+	cart.insert({'customer_id' : product_details.customer_id , 'book_image':product_details.book_image, 'book_name':product_details.book_name, 'book_author':product_details.book_author, 'book_cost':product_details.book_cost, 'quantity':quantity,"_rev":product_details._rev},product_details._id,function(err,body,header){
+		if (err) {
+			console.log('[cart.insert] ', err.message);
+		//	res.render("viewCart");
+		}else
+			{
+			console.log("you have inserted the record");
+			console.log(body);
+			}
+	});
+	
+}

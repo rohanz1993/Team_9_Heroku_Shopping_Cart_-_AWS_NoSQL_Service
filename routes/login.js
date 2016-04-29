@@ -11,6 +11,7 @@ exports.checkLogin = function(req,res){
 	var email = req.param("email");
 	var pass = req.param("password");
 	console.log("usernmae"+email+"password"+pass);
+	//console.log(Math.floor(Math.random()));
 	var json_responses;
 	  
 	  var test = nano.db.use('test');
