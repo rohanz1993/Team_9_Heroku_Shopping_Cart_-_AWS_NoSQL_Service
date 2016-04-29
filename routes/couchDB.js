@@ -43,6 +43,20 @@ nano.db.create('test', function() {
     
   });
 
+//Order Views
+
+test.insert(
+		  { "views": 
+		    { "by_customer_id": 
+		      { 
+		    	"map": function(doc) {	    	
+		    			emit(doc.customer_id, doc);	    	  
+		    	  } 
+		      } 
+		    }
+		  },'_design/order');
+
+//Cart Database
 
 nano.db.create('cart',function(){
 	 	var cart=nano.use('cart');
