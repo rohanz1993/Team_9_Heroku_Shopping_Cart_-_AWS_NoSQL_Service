@@ -53,7 +53,8 @@ app.get('/', routes.index);
 app.get('/users', user.list);
 app.get('/homepage',login.redirectToHomepage);
 app.get('/viewProfile',customer.viewProfile);
-app.get('/getProfileDetails',customer.getProfileDetails);
+app.get('/getProfileDetails/:email',customer.getProfileDetails);
+app.get('/viewOrderHistory/:customerID',customer.viewOrderHistory);
 
 //POST Requests
 app.post('/signup',signup.signup);
