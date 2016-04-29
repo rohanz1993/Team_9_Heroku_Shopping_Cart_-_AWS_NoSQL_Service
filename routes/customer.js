@@ -10,6 +10,8 @@ exports.getProfileDetails = function(req,res){
 	console.log("getProfileDetails called");
 	var test = nano.use('test');
 	var email=req.params.email;
+	
+	console.log("Email:" +email);
 	 test.view('login', 'by_email_address',{'key': email, 'include_docs': true}, function(err, body){
 		    if(!err){
 		    	console.log("Inside view");
@@ -99,4 +101,40 @@ exports.editProfile = function(req,res){
 	    	}
 	});
 	
+};
+
+
+exports.viewOrderHistory = function(req,res){
+	console.log("viewOrderHistory called");
+	var test = nano.use('order');
+	var id=req.params.customerID;
+	console.log("ID: "+id);
+	
+	 test.view('order', 'by_customer_id',{'key': id, 'include_docs': false}, function(err, body){
+		    if(!err){
+		    	console.log("Inside view");
+		    	var rows=body.rows;
+		    	if(typeof body.rows[0] !== "undefined")
+		        {
+		    		console.log("JS output: " +body.rows);
+		    		
+		    			res.status(200).json({
+		    				message : "success",
+		    				result:	body.rows
+		    			});
+		        }
+		    	else
+		    		{
+		    		//send proper message if no orders present
+		    		console.log("Login to continue");
+		    		}
+		    }
+		    else
+		    	{
+		    	console.log("Error connecting to Database"+err);
+		    	res.status(404).json({
+ 				message : "Couldn't connect to Database"
+ 			});
+		    	}
+		});
 };

@@ -1,23 +1,22 @@
 var app = angular.module('CustomerApp', []);
 app.controller('CustomerController', function($scope,$http,$location,$window) {
 	console.log("In Customer Controller");
-	
-	$scope.viewProfile=function(){
+
+
+$scope.viewProfile=function(){
 		console.log("In viewProfile controller");
 		$window.location="/viewProfile";
 	};
+
 	
-	//get the profile details when the page is loaded
-		$scope.getProfileDetails=function(){
-			$scope.email="ritika";
-				
-		//pass user_name
+//get the profile details when the page is loaded
+$scope.getProfileDetails=function(){
+			$scope.email="ritika.shetty@sjsu.edu";
+				console.log("Email passed" +$scope.email);
 		$http({
 			method : "GET",
-			url : '/getProfileDetails',
-			data : {
-				"email" : $scope.email
-			}
+			url : '/getProfileDetails'+$scope.email
+			
 		}).success(function(data) {
 			console.log("in success Customer Controller: "+JSON.stringify(data));
 			$scope.userName=data.result.user_name;
@@ -36,14 +35,14 @@ app.controller('CustomerController', function($scope,$http,$location,$window) {
 		
 	};
 
-	$scope.updateProfile=function(first_name,last_name,address,zipcode,email,password,phone_no,card_no,cvv,expiry){
+//UpdateProfile Controller
+$scope.updateProfile=function(first_name,last_name,address,zipcode,email,password,phone_no,card_no,cvv,expiry){
 	
 		console.log("In updateProfile controller");
 		$http({
 			method : "POST",
 			url : '/editProfile',
 			data : {
-				"user_name" : $scope.user_name,
 				"first_name" : first_name,
 				"last_name" : last_name,
 				"address" : address,
@@ -67,24 +66,29 @@ app.controller('CustomerController', function($scope,$http,$location,$window) {
 		
 	};
 
-	/*	
+//viewOrderHistory Controller
+
 $scope.viewOrderHistory=function(req,res){
-    	$scope.showallbillstable="true";
-    	console.log("In getAllbills controller");
-    	$scope.billsList=[];
-    	$scope.customerId=$window.localStorage.customerId;
-    	var url="getAllBills/"+$scope.customerId;
-    	dataService.getData(url,function(err,response){
-			if(err){
-				alert("error");
-			}else{
-				$scope.billsList=response.data;
-				var self=this;
-				self.tableParams=new NgTableParams({}, {dataset: $scope.billsList});
-				//alert("select success"+JSON.stringify(response.data[0].billingId));
-			}
-		});
-    };*/
+    	
+		console.log("In viewOrderHistory controller");
+		$scope.id="C_001";
+    	
+		$http({
+			method : "GET",
+			url : '/viewOrderHistory/'+$scope.id
+			
+		}).success(function(data) {
+			
+			console.log("in success viewOrderHistory Controller: "+JSON.stringify(data));			
+			console.log("Data.result" +data.result[0].value);
+			$scope.orders=data.result;
+						
+		}).error(function(error) {
+			$window.alert("Error" +JSON.stringify(error));
+		});	
+   
+    	
+    };
     
 
 });
