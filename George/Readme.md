@@ -30,3 +30,11 @@ For Week 3
 Created The sample UI wireframe for the different pages of the shopping cart
 Created flowchart to demonstrate the flow of operations in the project
 Created the NodeJs Backend for Retrive Orders and cancel Orders(couch DB) 
+
+
+For Week 4
+Completed Database Creation and entry for Database entry for Books
+Completed Front end for Checkoout Order Summary
+Completed Controller For order Summary
+Completed research on Redis and Posted Sample Application Code in personal Folder
+Tested Replication of datasets 
