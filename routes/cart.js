@@ -119,3 +119,19 @@ exports.changeQuantity=function(req,res){
 	});
 	
 };
+
+
+exports.removeFromCart=function(req,res)
+{
+	console.log("inside");
+	var product_details=req.param("product_details");
+	var cart=nano.use('cart');
+	cart.destroy(product_details._id,product_details._rev,function(err,body,header){
+		if (!err) {
+		    console.log("Successfully deleted doc");
+		  }else{
+			  console.log('Error',err);
+		  }
+		
+	});
+};

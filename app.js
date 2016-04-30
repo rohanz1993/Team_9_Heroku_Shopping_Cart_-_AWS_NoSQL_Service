@@ -64,6 +64,7 @@ app.post('/select_category',book.select_category);
 app.post('/search_book',book.search_book);
 app.get('/viewCart',cart.viewCart);
 app.post('/addToCart',cart.addToCart);
+app.post('/removeFromCart',cart.removeFromCart);
 app.post('/editProfile',customer.editProfile);
 app.post('/changeQuantity',cart.changeQuantity);
 http.createServer(app).listen(app.get('port'), function(){
