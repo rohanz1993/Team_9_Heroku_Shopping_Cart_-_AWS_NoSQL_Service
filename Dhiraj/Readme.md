@@ -29,6 +29,11 @@ Commit 2:
 
 installed client session node modules, 
 logout operation of destroying sessions.
+
+Week 3:
+Commit 3:
+
+Updated the view cart ui page with the basic template
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 Journal
@@ -82,3 +87,6 @@ Mongo I installed and started in my local machine further I installed a node mon
 Wrote an API doc of all the parameters required for the registration (signup), login and logout with the returning status code.
 Made some slides on Map-Reduce function in the couch db and gave some examples with it the slides where for the extra credit presentation.
 
+week 3:
+
+Last week I did some of the work on the middleware node.js which was followed by some map-reduce function on the couch db. This week I started with the integration the node with couch db which was further taken care by one of my team mate. After that I followed up with my last week’s work that was the sign in part I built a logout function which was able to redirect the code to the sign in function after that I updated the basic template of the view cart page. The basic template consist of the view the graphical user interface of the website. I used bootstrap navbar class to design the navbar on the top apart from that I used the css style to keep the top navbar constant apart from that I used the style to assign the background color and used the grid element in the bootstrap to set the alignment in the navbar. Apart from that the logo in the navbar is just an image source which access the image directly from the internet. In the main body part I used the table class in the bootstrap to design the table. Apart from it I used a jumbotron bootstrap class to design the below element, this is an element which gives the license and stuff to display.
