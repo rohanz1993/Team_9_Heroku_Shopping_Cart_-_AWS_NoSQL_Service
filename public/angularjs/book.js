@@ -69,8 +69,8 @@ select_category.controller('select_category', function($scope, $http) {
 				"quantity" : "1",
 				
 			}
-		}).success(function(){
-			console.log("added successfully")
+		}).success(function(data){
+			console.log(data.msg);
 		});
 		
 	};

@@ -1,5 +1,5 @@
 var http = require ('http');
-var nano = require('nano')('http://ec2-52-90-121-58.compute-1.amazonaws.com:5984/');
+var nano = require('nano')('http://54.84.95.87:5984/');
 //var nano = require('nano')('http://localhost:5984/');
 var books=nano.db.use('books');
 /*books.insert(
