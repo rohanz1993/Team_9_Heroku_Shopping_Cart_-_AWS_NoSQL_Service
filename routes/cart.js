@@ -73,7 +73,8 @@ exports.viewCart = function(req, res) {
 
 exports.addToCart=function(req,res)
 {
-	customerid=req.param("customer_id");
+	//customerid=req.param("customer_id");
+	var customerid="344";
 	var cart=nano.use('cart');
 	var productdetails="product_details";
 	var bookimage=req.param("book_image");

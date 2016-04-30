@@ -56,6 +56,26 @@ select_category.controller('select_category', function($scope, $http) {
 			
 		});
 	};
+	$scope.addToCart=function(row){
+		
+		$http({
+			method : "POST",
+			url :'/addToCart',
+			data : {
+				"book_image" : row.doc.book_image,
+				"book_name" : row.doc.book_name,
+				"book_author" : row.doc.book_author,
+				"book_cost" : row.doc.book_price,
+				"quantity" : "1",
+				
+			}
+		}).success(function(){
+			console.log("added successfully")
+		});
+		
+	};
 });
+
+
 
 

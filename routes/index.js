@@ -4,9 +4,9 @@
  */
 
 exports.index = function(req, res){
-<<<<<<< HEAD
-  res.render('search_book', { title: 'Express' });
-=======
+//<<<<<<< HEAD
+  //res.render('search_book', { title: 'Express' });
+//=======
   res.render('viewCart', { title: 'Express' });
->>>>>>> origin/master
+//>>>>>>> origin/master
 };
