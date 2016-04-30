@@ -36,16 +36,16 @@ Commit 3:
 Updated the view cart ui page with the basic template
 
 Week 4:
-Commit :
+Commit 1:
 
 Updated the sign in and the sign up ui page with the basic template
 
-Week 3:
-Commit 3:
+Week 4:
+Commit 2:
 
 Updated the homepage and the view category ui page with the basic template
 
-Week 3:
+Week 4:
 Commit 3:
 
 Beautified the the search_book ui
