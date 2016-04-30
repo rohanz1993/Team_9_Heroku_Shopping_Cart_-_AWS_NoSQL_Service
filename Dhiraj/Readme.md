@@ -34,6 +34,22 @@ Week 3:
 Commit 3:
 
 Updated the view cart ui page with the basic template
+
+Week 4:
+Commit :
+
+Updated the sign in and the sign up ui page with the basic template
+
+Week 3:
+Commit 3:
+
+Updated the homepage and the view category ui page with the basic template
+
+Week 3:
+Commit 3:
+
+Beautified the the search_book ui
+
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 Journal
